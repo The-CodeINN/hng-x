@@ -23,6 +23,12 @@ a {
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+
+}
+
+p > a {
+  text-decoration: underline;
+  color: blue;
 }
 
 .image-wrapper {
