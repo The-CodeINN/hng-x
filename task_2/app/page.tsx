@@ -1,9 +1,12 @@
-import Image from 'next/image';
+import { Navbar } from "@/components/Navbar";
+import { X } from "lucide-react";
 
 export default function Home() {
   return (
     <>
-      <h1>Task 2</h1>
+      <section className="py-6">
+        <Navbar />
+      </section>
     </>
   );
 }
