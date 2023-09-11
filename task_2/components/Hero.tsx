@@ -1,4 +1,5 @@
-"use import requests from "@/app/requests";
+"use client";
+import requests from "@/app/requests";
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
