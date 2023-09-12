@@ -17,7 +17,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     py-3
     border
     rounded-md
-    text-sm
+    text-md
+    text-black
     placeholder-gray-500
     disabled:opacity-50
     disabled:cursor-not-allowed
