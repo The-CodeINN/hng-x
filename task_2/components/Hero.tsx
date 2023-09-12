@@ -1,10 +1,12 @@
-"use client";
-import requests from "@/app/requests";
-import axios from "axios";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Button from "./Button";
-import { PlayCircle } from "lucide-react";
+'use client'
+
+import requests from '@/app/requests';
+import axios from 'axios';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import Button from './Button';
+import { PlayCircle } from 'lucide-react';
+import { getPopularMovies } from '@/app/requests';
 
 interface Movie {
   backdrop_path: string;
@@ -14,24 +16,17 @@ interface Movie {
   vote_average: number;
 }
 
-export const Hero = () => {
-  const [movies, setMovies] = useState([]);
+export const Hero = async () => {
+  const movies = await getPopularMovies();
 
   const movie = movies[Math.floor(Math.random() * movies.length)] as Movie;
-
-  useEffect(() => {
-    axios.get(requests.requestPopular).then((res) => {
-      {
-        setMovies(res.data.results);
-      }
-    });
-  }, []);
+  console.log(movie, movies);
 
   // console.log(movie, "Heello");
   return (
     <div className='w-full h-[450px] md:h-full'>
       <div className='w-full h-full border'>
-        <div className='absolute w-full h-[450px] md:h-full bg-gradient-to-r from-black '></div>
+        <div className='absolute w-full h-[450px] md:h-full bg-gradient-to-l from-gray-900/40 to-[#010511]'></div>
         <Image
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
@@ -44,28 +39,28 @@ export const Hero = () => {
             {movie?.title}
           </h1>
           <div className='flex items-center gap-x-3 text-sm md:text-md'>
-            <div className="flex items-center gap-x-2">
+            <div className='flex items-center gap-x-2'>
               <Image
                 src='https://img.icons8.com/color/48/imdb.png'
                 width={48}
                 height={48}
                 alt='IMDb'
-                className="w-10 h-10"
+                className='w-10 h-10'
               />
               {movie?.vote_average} / 100
             </div>
-            <div className="flex items-center gap-x-2">
+            <div className='flex items-center gap-x-2'>
               <Image
                 src='https://img.icons8.com/emoji/48/tomato-emoji.png'
                 width={48}
                 height={48}
                 alt='Tomato'
-                className="w-10 h-10"
+                className='w-10 h-10'
               />
               {movie?.vote_average * 10}%
             </div>
           </div>
-          <p className=' line-clamp-5 md:line-clamp-none text-sm md:text-xl w-full lg:max-w-[55%] xl:max-w-[45%]'>
+          <p className=' line-clamp-5 md:line-clamp-none text-sm md:text-xl w-full lg:max-w-[55%] xl:max-w-[60%]'>
             {movie?.overview}
           </p>
           <Button className='w-auto rounded-md bg-[#BE123C]'>
