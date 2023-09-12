@@ -1,10 +1,33 @@
-import Image from "next/image";
-import { Input } from "./Input";
-import { MenuIcon } from "lucide-react";
+'use client';
+
+import Image from 'next/image';
+import { Input } from './Input';
+import { MenuIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState<Boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className='flex items-center justify-between maxWidthSection z-[100] absolute w-full text-white py-6'>
+    <header
+      className={cn(
+        'flex items-center justify-between maxWidthSection z-[100] absolute w-full text-white py-6',
+        isScrolled && 'bg-[#141414]/70'
+      )}
+    >
       <div className='flex items-center gap-x-2 cursor-pointer'>
         <Image src='/assets/logo.png' alt='Logo' width={50} height={50} />
         <h1 className='font-bold md:text-xl'>MovieBox</h1>
