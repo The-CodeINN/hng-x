@@ -45,11 +45,11 @@ PS: You MUST use react or  Next js
 <br />
 <br />
 
-![Demo screen](https://)
+![Demo Link](https://hng-x-tawny.vercel.app/)
 <br />
 <br />
 
-![Demo screen]()
+![Demo screen](https://github.com/The-CodeINN/hng-x/blob/main/task_2/public/images/banner.png)
 <br />
 <br />
 
