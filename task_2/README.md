@@ -41,11 +41,10 @@ PS: You MUST use react or  Next js
 
 
 # Solution 🏆
-## Demo Link - 
+## Demo Link - https://hng-x-tawny.vercel.app/
 <br />
 <br />
 
-![Demo Link](https://hng-x-tawny.vercel.app/)
 <br />
 <br />
 
