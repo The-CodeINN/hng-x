@@ -1,4 +1,4 @@
-# HNGx Task Two 🔥
+# HNGx Task Three 🔥
 
 ## Image Gallery
 
