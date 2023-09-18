@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${work_sans.className} `}>{children}</body>
+      <body className={`${work_sans.className} min-h-screen bg-black-100`}>
+        {children}
+      </body>
     </html>
   );
 }
