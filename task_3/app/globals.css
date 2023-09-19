@@ -15,6 +15,10 @@ html,body{
     @apply min-h-[calc(100vh-100px)];
   }
 
+  .padding_section {
+    @apply mx-auto w-full max-w-screen-2xl px-6 xs:px-8 sm:px-16;
+  }
+
   .text-gradient {
     background: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
     -webkit-background-clip: text;

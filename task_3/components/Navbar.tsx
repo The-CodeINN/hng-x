@@ -1,7 +1,9 @@
-import { Menu } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Input } from './ui/input';
+"use client"
+
+import Image from "next/image";
+import Link from "next/link";
+import MobileNav from "./MobileNav";
+import SeachInput from "./Seachinput";
 
 const Navbar = () => {
   return (
@@ -17,11 +19,11 @@ const Navbar = () => {
           />
         </Link>
 
-        <div>
-          <Input className="" />
-        </div>
+        
+          <SeachInput />
+        
 
-        <Menu className='block md:hidden' />
+        <MobileNav />
 
         <ul className='flex-center gap-x-3 max-md:hidden md:gap-x-10'>
           <li className='body-text text-gradient_blue-purple !font-bold'>
