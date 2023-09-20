@@ -14,4 +14,12 @@ export default function getPrevNextPages(images: ImagesResults) {
     images.total_results % images.per_page
       ? Math.ceil(images.total_results / images.per_page)
       : images.total_results / images.per_page + 1;
+
+  if (prevPage && parseInt(prevPage) + 5 < totalPages) {
+    nextPage = (parseInt(prevPage) + 5).toString();
+  }
+
+  if (nextPage && parseInt(nextPage) >= totalPages) nextPage = null;
+
+  return { prevPage, nextPage };
 }
