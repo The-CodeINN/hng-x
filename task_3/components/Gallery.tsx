@@ -5,6 +5,7 @@ import addBlurredDataUrls from "@/lib/getBase64";
 import getPrevNextPages from "@/lib/getPreNextPages";
 import Pagination from "./Pagination";
 
+
 type Props = {
   topic?: string | undefined;
   page?: string | undefined;

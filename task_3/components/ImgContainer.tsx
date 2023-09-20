@@ -1,6 +1,9 @@
+"use client";
+
+import React from "react";
+import { useDraggable } from "@dnd-kit/core";
 import type { Photo } from "@/models/Images";
 import Image from "next/image";
-import Link from "next/link";
 
 type Props = {
   photo: Photo;
@@ -8,19 +11,25 @@ type Props = {
 
 export default function ImgContainer({ photo }: Props) {
   const widthHeightRatio = photo.height / photo.width;
-
   const galleryHeight = Math.ceil(250 * widthHeightRatio);
-
   const photoSpans = Math.ceil(galleryHeight / 10) + 1;
+
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: `photo-${photo.id}`,
+  });
 
   return (
     <div
+      ref={setNodeRef}
       className='w-[250px] justify-self-center'
-      style={{ gridRow: `span ${photoSpans}` }}
+      style={{
+        gridRow: `span ${photoSpans}`,
+        transform: `translate(${transform?.x}px, ${transform?.y}px)`, // Apply transform directly
+      }}
+      {...listeners}
+      {...attributes}
     >
-      <div
-        className='grid place-content-center'
-      >
+      <div className='grid place-content-center'>
         <div className='rounded-xl overflow-hidden group'>
           <Image
             src={photo.src.large}
