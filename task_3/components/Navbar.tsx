@@ -6,6 +6,7 @@ import MobileNav from './MobileNav';
 import SeachInput from './Seachinput';
 
 import { UserButton, useAuth } from '@clerk/nextjs';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const { isLoaded, userId, sessionId, getToken } = useAuth();
@@ -29,9 +30,14 @@ const Navbar = () => {
         {/* <MobileNav /> */}
 
         <ul className='flex-center gap-x-3  md:gap-x-10'>
-          <li className='body-text text-gradient_blue-purple !font-bold max-md:hidden'>
+          <li
+            className={cn(
+              'body-text text-gradient_blue-purple !font-bold',
+              !userId ? '' : 'hidden'
+            )}
+          >
             <Link href='/' target='_blank'>
-              Home
+              Gallery
             </Link>
           </li>
           <li className='body-text text-gradient_blue-purple !font-bold'>
